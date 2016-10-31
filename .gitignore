@@ -1,0 +1,25 @@
+import nltk
+from nltk.corpus import treebank
+import matplotlib.pyplot as plt
+
+
+
+
+my_file=open("nota.txt","r")
+cont=my_file.read()
+sentence = cont
+tokens = nltk.word_tokenize(sentence)
+my_file.close() 
+
+
+
+tagged = nltk.pos_tag(tokens)
+print (tagged[0:6] )
+entities = nltk.chunk.ne_chunk(tagged)
+print (entities)
+
+
+
+t = treebank.parsed_sents('wsj_0009.mrg')[0]
+t.draw()
+
